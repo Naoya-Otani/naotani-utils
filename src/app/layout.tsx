@@ -12,7 +12,7 @@ const mPlus = M_PLUS_Rounded_1c({
 
 export const metadata: Metadata = {
   title: "naotani-utils",
-  description: "naotani-utils",
+  description: "便利な機能を提供するWebサイト",
 };
 
 export default function RootLayout({
@@ -30,7 +30,7 @@ export default function RootLayout({
           </div>
           {children}
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
