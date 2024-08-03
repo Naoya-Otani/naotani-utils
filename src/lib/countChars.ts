@@ -8,9 +8,13 @@ export interface TextStats {
 export const calculateStats = (input: string): TextStats => {
   const characters = input.length;
   const lines = input.trim() ? input.trim().split("\n").length : 0;
-  const spaces = (input.match(/[\s\u3000]/g) || []).length;
+  const halfWidthSpaces = (input.match(/\s/g) || []).length;
+  const fullWidthSpaces = (input.match(/\u3000/g) || []).length;
+  const tabs = (input.match(/\t/g) || []).length;
+  const spaces = halfWidthSpaces + fullWidthSpaces + tabs;
   const newlines = (input.match(/\n/g) || []).length;
-  const manuscriptPages = Math.ceil(characters / 400);
+  const charactersWithoutSpaces = characters - spaces;
+  const manuscriptPages = Math.ceil(charactersWithoutSpaces / 400);
 
   return {
     characters,

@@ -6,6 +6,7 @@ type Props = {
 
 const CountResult = ({ text }: Props) => {
   const stats: TextStats = calculateStats(text);
+  console.log(stats.spaces, stats.newlines);
   return (
     <>
       <p className="mb-4 text-xl font-semibold">Result</p>
@@ -16,7 +17,7 @@ const CountResult = ({ text }: Props) => {
           </p>
           <p className="flex justify-between whitespace-nowrap border-b border-gray-200 px-2">
             <span>空白・改行を除いた文字数:</span>
-            <span>{stats.characters - stats.spaces - stats.newlines}</span>
+            <span>{stats.characters - stats.spaces}</span>
           </p>
           <p className="flex justify-between whitespace-nowrap border-b border-gray-200 px-2">
             <span>行数:</span> <span>{stats.lines}</span>
