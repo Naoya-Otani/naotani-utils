@@ -1,9 +1,8 @@
+import BreadCrumb from "@/components/origin/blocks/BreadCrumb";
+import Header from "@/components/origin/templates/Header";
 import type { Metadata } from "next";
 import { M_PLUS_Rounded_1c } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/origin/templates/Header";
-import BreadCrumb from "@/components/origin/blocks/BreadCrumb";
-import Footer from "@/components/origin/templates/Footer";
 
 const mPlus = M_PLUS_Rounded_1c({
   weight: ["400", "500", "700"],

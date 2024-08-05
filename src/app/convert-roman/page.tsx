@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { AlertCircle, CircleCheck } from "lucide-react";
+import CopyBtn from "@/components/origin/elements/CopyBtn";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { processInput } from "@/lib/convertRomanInt";
+import { AlertCircle, CircleCheck } from "lucide-react";
 
 const ConvertRomanInt = () => {
   const [input, setInput] = useState("");
@@ -29,7 +30,10 @@ const ConvertRomanInt = () => {
         <Alert variant="success">
           <CircleCheck className="h-4 w-4" />
           <AlertTitle>結果</AlertTitle>
-          <AlertDescription>{status.result}</AlertDescription>
+          <AlertDescription className="flex items-end justify-between">
+            <p className="text-xl">{status.result}</p>
+            <CopyBtn text={status.result.toString()} />
+          </AlertDescription>
         </Alert>
       )}
       <div className="">

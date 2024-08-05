@@ -1,6 +1,5 @@
 "use client";
 
-import { useSelectedLayoutSegments } from "next/navigation";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -9,6 +8,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { House } from "lucide-react";
+import { useSelectedLayoutSegments } from "next/navigation";
 import { Fragment } from "react";
 
 const BreadCrumb = () => {

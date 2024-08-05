@@ -1,9 +1,9 @@
 "use client";
 
-import { ChangeEvent, useState } from "react";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
 import CountResult from "@/components/origin/blocks/CountResult";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { ChangeEvent, useState } from "react";
 
 const CharCount = () => {
   const [text, setText] = useState("");

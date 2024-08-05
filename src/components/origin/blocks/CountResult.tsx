@@ -1,4 +1,4 @@
-import { calculateStats, TextStats } from "@/lib/countChars";
+import { TextStats, calculateStats } from "@/lib/countChars";
 
 type Props = {
   text: string;
