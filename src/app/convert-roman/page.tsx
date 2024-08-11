@@ -37,11 +37,11 @@ const ConvertRomanInt = () => {
         </Alert>
       )}
       <div className="">
-        <p>注意</p>
-        <p>
-          アラビア数字は1以上9999以下の整数を入力してください。
-          ローマ数字の出入力は大文字のアルファベットで行います。
-        </p>
+        <h3 className="mb-2 font-bold">注意</h3>
+        <div className="flex flex-col gap-y-1">
+          <p>アラビア数字は1以上9999以下の整数を入力してください。</p>
+          <p>ローマ数字の出入力は大文字のアルファベットで行います。</p>
+        </div>
       </div>
     </div>
   );
