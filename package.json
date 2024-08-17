@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,md}\""
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,md}\"",
+    "docker:dev": "next dev -H 0.0.0.0",
+    "docker:build": "next build",
+    "docker:start": "next start -H 0.0.0.0"
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.1.0",
