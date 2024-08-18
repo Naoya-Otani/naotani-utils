@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import CopyBtn from "@/components/origin/elements/CopyBtn";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { processInput } from "@/lib/convertRomanInt";
 import { AlertCircle, CircleCheck } from "lucide-react";
+import { useState } from "react";
 
 const ConvertRomanInt = () => {
   const [input, setInput] = useState("");
@@ -32,14 +32,14 @@ const ConvertRomanInt = () => {
           <AlertTitle>結果</AlertTitle>
           <AlertDescription className="flex items-end justify-between">
             <p className="text-xl">{status.result}</p>
-            <CopyBtn text={status.result.toString()} />
+            <CopyBtn text={status.result} />
           </AlertDescription>
         </Alert>
       )}
       <div className="">
         <h3 className="mb-2 font-bold">注意</h3>
         <div className="flex flex-col gap-y-1">
-          <p>アラビア数字は1以上9999以下の整数を入力してください。</p>
+          <p>アラビア数字は1以上4000以下の整数を入力してください。</p>
           <p>ローマ数字の出入力は大文字のアルファベットで行います。</p>
         </div>
       </div>

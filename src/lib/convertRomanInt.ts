@@ -50,22 +50,26 @@ export function arabicToRoman(arabic: number): string {
   return result;
 }
 
-export function determineInputType(
-  input: string,
-): "arabic" | "roman" | "other" {
+enum InputType {
+  Arabic = "arabic",
+  Roman = "roman",
+  Other = "other",
+}
+
+export function determineInputType(input: string): InputType {
   if (/^[0-9]+$/.test(input)) {
-    return "arabic";
+    return InputType.Arabic;
   } else if (/^[IVXLCDM]+$/.test(input)) {
-    return "roman";
+    return InputType.Roman;
   } else {
-    return "other";
+    return InputType.Other;
   }
 }
 
 type ProcessInputStatus = Success | Failure | Waiting;
 type Success = {
   status: "success";
-  result: string | number;
+  result: string;
 };
 type Failure = {
   status: "failure";
@@ -84,12 +88,12 @@ export function processInput(input: string): ProcessInputStatus {
   const inputType = determineInputType(input);
 
   switch (inputType) {
-    case "arabic":
+    case InputType.Arabic:
       const arabic = parseInt(input, 10);
-      if (arabic > 9999) {
+      if (arabic > 4000) {
         return {
           status: "failure",
-          errorMessage: "10000以上のアラビア数字は変換できません。",
+          errorMessage: "4001以上のアラビア数字は変換できません。",
         };
       }
       if (arabic <= 0) {
@@ -102,9 +106,9 @@ export function processInput(input: string): ProcessInputStatus {
         status: "success",
         result: arabicToRoman(arabic),
       };
-    case "roman":
+    case InputType.Roman:
       try {
-        const arabicResult = romanToArabic(input);
+        const arabicResult = romanToArabic(input).toString();
         return {
           status: "success",
           result: arabicResult,
@@ -115,7 +119,7 @@ export function processInput(input: string): ProcessInputStatus {
           errorMessage: "無効なローマ数字です。",
         };
       }
-    case "other":
+    case InputType.Other:
       return {
         status: "failure",
         errorMessage: "有効なアラビア数字またはローマ数字ではありません。",
