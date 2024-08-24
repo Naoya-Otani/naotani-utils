@@ -13,8 +13,9 @@ import { Fragment } from "react";
 
 const BreadCrumb = () => {
   const segments = useSelectedLayoutSegments();
+  if (segments.length === 0) return null;
   return (
-    <>
+    <div className="flex items-center justify-start border-b border-gray-200 px-8 py-3 lg:px-16 lg:py-4">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -32,7 +33,7 @@ const BreadCrumb = () => {
           ))}
         </BreadcrumbList>
       </Breadcrumb>
-    </>
+    </div>
   );
 };
 

@@ -24,12 +24,9 @@ export default function RootLayout({
       <body className={mPlus.className + " relative"}>
         <Header />
         <main>
-          <div className="flex items-center justify-start border-b border-gray-200 px-8 py-3 lg:px-16 lg:py-4">
-            <BreadCrumb />
-          </div>
+          <BreadCrumb />
           {children}
         </main>
-        {/* <Footer /> */}
       </body>
     </html>
   );
